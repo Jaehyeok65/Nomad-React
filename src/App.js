@@ -26,8 +26,8 @@ function App() {
       </select>
       <hr/>
       {index === "-1" ? <h2>Select your Unit</h2> : null}
-      {index === "0" ? <MinitToHour /> : null }
-      {index === "1" ? <KmToMiter /> : null }
+      {index === "0" ? <MinitToHour title={"Minit"} content={"Hour"} /> : null }
+      {index === "1" ? <KmToMiter title={"Km"} content={"Meter"} /> : null }
     </div>
   );
 }
