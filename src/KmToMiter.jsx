@@ -8,8 +8,10 @@ const KmToMiter = ({title,content}) => {
     const [toggle,setToggle] = useState(false);
 
     useEffect( () => {
-        console.log('create')
-        return() => {console.log('destroy')};
+        console.log('create km');
+        return () => {
+            console.log('destory km');
+        }
     },[])
 
     const reset = () => {
@@ -41,4 +43,4 @@ const KmToMiter = ({title,content}) => {
     );
 }
 
-export default KmToMiter;
+export default React.memo(KmToMiter);

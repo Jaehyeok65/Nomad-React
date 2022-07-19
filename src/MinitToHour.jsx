@@ -8,8 +8,10 @@ const MinitToHour = ({ title, content}) => {
     const [toggle,setToggle] = useState(false);
 
     useEffect( () => {
-        console.log('create')
-        return() => {console.log('destroy')};
+        console.log('create minit');
+        return () => {
+            console.log('destory minit');
+        }
     },[])
 
     const reset = () => {
@@ -41,4 +43,4 @@ const MinitToHour = ({ title, content}) => {
     );
 }
 
-export default MinitToHour;
+export default React.memo(MinitToHour);
