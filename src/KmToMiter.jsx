@@ -1,11 +1,16 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 
 const KmToMiter = ({title,content}) => {
 
     const [meter,setMeter] = useState(0);
     const [toggle,setToggle] = useState(false);
+
+    useEffect( () => {
+        console.log('create')
+        return() => {console.log('destroy')};
+    },[])
 
     const reset = () => {
         setMeter(0);
