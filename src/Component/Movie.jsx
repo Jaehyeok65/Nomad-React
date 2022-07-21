@@ -1,26 +1,29 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
-
-function Movie( { coverimg, title, summary, genres }) {
-
-    const ids = useParams();
-    console.log(ids)
-
-    return(
-        <>
-        <div >
-            <img src={coverimg} alt = {title} />
-            <h2>{title}</h2>
-            <p>{summary}</p>
-            <ul>
-                {genres.map((g) => (
-                    <li key={g}>{g}</li>
-                ))}
-            </ul>
-        </div>
-        </>
-    )
+function Movie({ id, coverimg, title, summary, genres }) {
+  return (
+    <div>
+      <img src={coverimg} alt={title} />
+      <h2>
+        <Link to={`/movie/${id}`}>{title}</Link>
+      </h2>
+      <p>{summary}</p>
+      <ul>
+        {genres.map((g) => (
+          <li key={g}>{g}</li>
+        ))}
+      </ul>
+    </div>
+  );
 }
 
-export default Movie();
+Movie.propTypes = {
+  id: PropTypes.number.isRequired,
+  coverImg: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  summary: PropTypes.string.isRequired,
+  genres: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
+
+export default Movie;
